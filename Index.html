@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Emotional Check-in</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e3f2fd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+            animation: fadeIn 1s ease-in-out;
+        }
+        h1 {
+            color: #1565c0;
+            margin-bottom: 10px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        .affirmation {
+            font-size: 16px;
+            color: #0d47a1;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .category {
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #0d47a1;
+        }
+        .button-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            animation: slideUp 1s ease-in-out;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 12px;
+            border: none;
+            background: #1e88e5;
+            color: white;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        button:hover {
+            background: #1565c0;
+        }
+        .insight-box {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            font-size: 18px;
+            color: #424242;
+            animation: fadeIn 0.5s ease-in-out;
+            display: none;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Daily Emotional Check-in</h1>
+        <div class="affirmation">Your existence is a miracle. No matter how tough today feels, you are worthy, resilient, and capable of overcoming any challenge. Keep going—your journey matters.</div>
+        
+        <div class="category">Stress & Anxiety</div>
+        <div class="button-container">
+            <button onclick="showInsight('worry')">Worried about how things will happen</button>
+            <button onclick="showInsight('stress')">Stressed or frustrated</button>
+            <button onclick="showInsight('burnout')">Feeling burned out</button>
+        </div>
+
+        <div class="category">Sadness & Loneliness</div>
+        <div class="button-container">
+            <button onclick="showInsight('sad')">Sad or disappointed</button>
+            <button onclick="showInsight('continuous_sadness')">Feeling continuously sad</button>
+            <button onclick="showInsight('no_attention')">Feeling like no one is giving attention</button>
+        </div>
+
+        <div class="category">Emotional Struggles</div>
+        <div class="button-container">
+            <button onclick="showInsight('guilt')">Feeling guilty</button>
+            <button onclick="showInsight('numb')">Emotionally disconnected</button>
+            <button onclick="showInsight('hiding')">Feeling like hiding from everyone</button>
+            <button onclick="showInsight('emotional_damage')">Feeling emotionally damaged</button>
+        </div>
+
+        <div class="category">Seeking Strength</div>
+        <div class="button-container">
+            <button onclick="showInsight('talk')">Want to talk but can't</button>
+            <button onclick="showInsight('courage')">Feeling like I have no courage</button>
+            <button onclick="showInsight('self_growth')">Want to be strong, save, and achieve dreams</button>
+            <button onclick="showInsight('happy')">Happy and at peace</button>
+        </div>
+        
+        <div id="insightBox" class="insight-box"></div>
+    </div>
+
+    <script>
+        function showInsight(emotion) {
+            const insights = {
+                worry: "Focus on what is in your control. Make a small action plan.",
+                sad: "Identify if it's disappointment or exhaustion. Take a break.",
+                stress: "Find the biggest stressor and address it step by step.",
+                guilt: "Are you being too hard on yourself? Learn and move forward.",
+                numb: "Take time for yourself. Try journaling or meditation.",
+                happy: "What made you happy today? Try to repeat it tomorrow!",
+                talk: "It's okay to struggle with expressing yourself. Try writing down your thoughts first or reaching out in small steps.",
+                courage: "Courage is not about never feeling fear—it's about moving forward despite it. You have come this far, and that itself is strength. Take one step today, no matter how small.",
+                burnout: "You are exhausted, and it's okay to take a break. Rest, recharge, and set boundaries for yourself.",
+                emotional_damage: "Healing takes time. Be kind to yourself, surround yourself with supportive people, and seek help if needed. You are not alone.",
+                no_attention: "Feeling unseen can be tough. Try reaching out, expressing your needs, and reminding yourself that your worth isn't defined by others' attention.",
+                hiding: "It's okay to take time for yourself, but remember to let in the people who care. Small steps can help reconnect.",
+                continuous_sadness: "Persistent sadness is hard. Acknowledge it, give yourself grace, and focus on self-care. When you feel alone, create small routines that bring comfort, such as journaling, engaging in activities you enjoy, or setting tiny goals to regain control. You are strong enough to navigate this.",
+                self_growth: "Stay focused on your dreams. Set financial goals, create a vision board, and break your ambitions into actionable steps. You have the strength to build the life you want."
+            };
+            
+            const insightBox = document.getElementById("insightBox");
+            insightBox.innerText = insights[emotion];
+            insightBox.style.display = "block";
+        }
+    </script>
+</body>
+</html>
